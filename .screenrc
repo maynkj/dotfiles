@@ -1,0 +1,24 @@
+# Set up UTF-8 as the default encoding.
+encoding UTF-8
+
+# Don't display the copyright page.
+startup_message off
+
+# Set the escape sequence to a single backtick instead of '^a'.
+escape ``
+
+# Toggle between last used windows.
+bind ' ' other
+
+# Shorten the time a message is displayed.
+msgwait 0.5
+
+# terminfo and termcap for nice 256 color terminal.
+term "screen-256color"
+attrcolor b ".I"
+
+# This will show the titles.
+hardstatus alwayslastline "%{KW} %-w%{Wg} %n %t %{KW}%+w"
+
+# Increase the scroll size.
+defscrollback 3000
