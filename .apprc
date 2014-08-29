@@ -7,8 +7,8 @@ source $HOME/.screenrc
 # was initially running in the window will be launched again.
 zombie kr
 
-screen -t vim 0 vim .
-screen -t console 1 make console
-screen -t smtp 2 mt 2525
-screen -t server 3 make server
+screen -t vim 0 gs vim .
+screen -t console 1 gs make console
+screen -t smtp 2 gs mt 2525
+screen -t server 3 gs make server
 select vim
