@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/maynkj/dropbox/code/companies/harmoni/moofing'
+let g:netrw_dirhist_2='/Users/maynkj/dropbox/code/companies/harmoni/moofing/views'
+let g:netrw_dirhist_3='/Users/maynkj/dropbox/code/dotfiles'
