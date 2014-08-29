@@ -1,0 +1,22 @@
+[user]
+	name = maynkj
+	email = mayn.kjaer@gmail.com
+[credential]
+	helper = osxkeychain
+[push]
+	default = simple
+[alias]
+  st  = status
+  ci  = commit
+  br  = branch
+  co  = checkout
+  df  = diff
+  lg  = log -p
+  aa  = add -A .
+  p   = push
+  pom = pull origin master
+  pum = pull upstream master
+  heroku = push heroku master
+[core]
+  excludesfile = ~/.gitignore
+	editor = vim
