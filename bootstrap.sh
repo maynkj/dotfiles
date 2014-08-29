@@ -12,6 +12,7 @@ do
     echo Ignoring blacklisted file: $file
   else
     echo Creating symlink for: $file in $HOME
+    rm -rf $HOME/$file
     ln -s $PWD/$file $HOME/$file
   fi
 done
