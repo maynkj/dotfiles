@@ -2,10 +2,15 @@
 .DS_Store
 *.pid
 dump.rdb
-myvenv
+venv
 __pycache__
 staticfiles
 local_settings.py
 db.sqlite3
 .env
 .netrwhist
+*.pyc
+*.gem
+config/database.yml
+script.rb
+output.csv

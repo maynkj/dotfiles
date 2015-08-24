@@ -4,6 +4,9 @@ encoding UTF-8
 # Don't display the copyright page.
 startup_message off
 
+# Set the escape sequence to a single backtick instead of '^a'.
+escape ``
+
 # Toggle between last used windows.
 bind ' ' other
 
@@ -19,3 +22,10 @@ hardstatus alwayslastline "%{KW} %-w%{Wg} %n %t %{KW}%+w"
 
 # Increase the scroll size.
 defscrollback 3000
+
+# By default screen windows are removed from the window list
+# as soon as the windows process exits. This command will
+# keep "dead" windows in the list. Press "k" to remove a "dead"
+# window. Press "r" to resurrect the window, the process that
+# was initially running in the window will be launched again.
+zombie kr

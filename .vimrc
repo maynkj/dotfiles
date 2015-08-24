@@ -47,19 +47,23 @@ set statusline=%y\ %f\ %=\ TL:\ %L
 
 set encoding=utf-8 fileencodings=.
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 " Tab mappings.
 let mapleader=","
 
 augroup vimrcEx
   "clear all autocmds in the group.
   autocmd!
-  autocmd FileType ruby,css,html setlocal ai tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+  autocmd FileType ruby,css,html,javascript setlocal ai tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
-  autocmd FileType python,javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+  autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
   autocmd FileType c,make,lua setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
   autocmd FileType rc setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab
 
   autocmd! BufRead,BufNewFile *.rc setlocal filetype=rc
+  autocmd! BufRead,BufNewFile *.raml setlocal filetype=raml
+  autocmd! BufRead,BufNewFile *.less setlocal filetype=less
   autocmd! BufRead,BufNewFile *.md setlocal filetype=markdown
 
   " Leave the return key alone when in command line windows, since it's used
@@ -80,6 +84,7 @@ colorscheme hemisu
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FILE FINDER
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_user_command = [".git/", "git --git-dir=%s/.git ls-files -oc --exclude-standard"]
 
 " Returns files from the git index.
 function! ListGitFiles(...)
