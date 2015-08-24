@@ -4,9 +4,6 @@ encoding UTF-8
 # Don't display the copyright page.
 startup_message off
 
-# Set the escape sequence to a single backtick instead of '^a'.
-escape ``
-
 # Toggle between last used windows.
 bind ' ' other
 
