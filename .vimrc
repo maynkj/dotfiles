@@ -26,6 +26,8 @@ set hlsearch                      " Highlight matches.
 set nowrap                        " don't wrap lines
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 
+set shell=$SHELL                  " default shell
+
 set nrformats=                    " Treat all numerals as decimals
 
 set title                         " Set the terminal's title
@@ -123,3 +125,18 @@ function! InsertTabWrapper()
 endfunction
 
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" AUTO PASTE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
