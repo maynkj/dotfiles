@@ -18,3 +18,4 @@ temp/
 latest.dump
 node_modules/
 tmp/
+.ruby-version

@@ -30,7 +30,8 @@ export PATH=./node_modules/.bin:$PATH
 # Executable files in current directory.
 export PATH=./bin:$PATH
 
-alias code="cd ~/dropbox/code"
-alias resafari="cd ~/dropbox/code/resafari"
-alias api="cd ~/dropbox/code/resafari/api"
+export PS1='\W 🤖  '
+
+alias code="cd ~/Documents/code"
+alias resafari="cd ~/Documents/code/resafari/resafari"
 alias app="screen -c .screenrc"
