@@ -1,81 +1,41 @@
-" Vim configuration.
+set nocompatible
 
-set nocompatible                  " Must come first because it changes other options.
+set autoindent                            " auto indent
+set backspace=indent,eol,start            " intuitive backspacing
+set cursorline                            " highlight current line
+set encoding=utf-8                        " default encoding
+set expandtab                             " tabs are spaces
+set fileencoding=utf-8                    " default file encoding
+set foldenable                            " enable folding
+set foldlevelstart=10                     " open most folds by default
+set foldmethod=syntax                     " fold based on indent level
+set foldnestmax=10                        " 10 nested fold max
+set hidden                                " handle multiple buffers better
+set hlsearch                              " highlight matches
+set incsearch                             " search as characters are entered
+set laststatus=2                          " show the status line all the time
+set lazyredraw                            " redraw only when we need to.
+set nrformats=                            " treal all numbers as decimals
+set nobackup                              " don't make a backup before overwriting a file
+set noswapfile                            " don't save swap files
+set nowritebackup                         " no backup I said
+set nowrap                                " don't wrap lines
+set number                                " show line numbers
+set ruler                                 " show cursor position
+set scrolloff=3                           " show 3 lines of context around the cursor
+set shell=$SHELL                          " default shell
+set shiftwidth=2                          " global tab width
+set showcmd                               " show command in bottom bar
+set showmatch                             " highlight matching [{()}]
+set showmode                              " display the current mode
+set softtabstop=2                         " number of spaces in tab when editing
+set tabstop=2                             " number of visual spaces per TAB
+set visualbell                            " no beeping
+set wildmenu                              " visual autocomplete for command menu
+set wildmode=list:longest                 " complete files like a shell
 
-syntax enable                     " Turn on syntax highlighting.
-
-set showcmd                       " Display incomplete commands.
-set showmode                      " Display the mode you're in.
-
-set backspace=indent,eol,start    " Intuitive backspacing.
-
-set hidden                        " Handle multiple buffers better.
-
-set wildmenu                      " Enhanced command line completion.
-set wildmode=list:longest         " Complete files like a shell.
-
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
-
-set number                        " Show line numbers.
-set ruler                         " Show cursor position.
-
-set hls                           " Highlight matches.
-set hlsearch                      " Highlight matches.
-
-set nowrap                        " don't wrap lines
-set scrolloff=3                   " Show 3 lines of context around the cursor.
-
-set shell=$SHELL                  " default shell
-
-set nrformats=                    " Treat all numerals as decimals
-
-set title                         " Set the terminal's title
-
-set visualbell                    " No beeping.
-
-set nobackup                      " Don't make a backup before overwriting a file.
-set nowritebackup                 " And again.
-set noswapfile                    " Don't save swap files.
-
-set tabstop=2                     " Global tab width.
-set shiftwidth=2                  " And again, related.
-set expandtab                     " Use spaces instead of tabs.
-
-set autoindent                    " Auto indent.
-
-set laststatus=2                  " Show the status line all the time.
-set statusline=%y\ %f\ %=\ TL:\ %L
-
-set encoding=utf-8 fileencodings=.
-
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-" Tab mappings.
-let mapleader=","
-
-augroup vimrcEx
-  "clear all autocmds in the group.
-  autocmd!
-  autocmd FileType ruby,css,html,javascript setlocal ai tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-
-  autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-  autocmd FileType c,make,lua setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
-  autocmd FileType rc setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab
-
-  autocmd! BufRead,BufNewFile *.rc setlocal filetype=rc
-  autocmd! BufRead,BufNewFile *.raml setlocal filetype=raml
-  autocmd! BufRead,BufNewFile *.less setlocal filetype=less
-  autocmd! BufRead,BufNewFile *.md setlocal filetype=markdown
-
-  " Leave the return key alone when in command line windows, since it's used
-  " to run commands there.
-  autocmd! CmdwinEnter * :unmap <cr>
-  autocmd! CmdwinLeave * :call MapCR()
-
-  " Removing all trailing whitespace.
-  autocmd BufWritePre * :%s/\s\+$//e
-augroup END
+filetype on                               " enable file type detection
+syntax enable                             " turn on syntax highlighting
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORSCHEME
@@ -84,59 +44,18 @@ set t_Co=256
 colorscheme hemisu
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FILE FINDER
+" KEY MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_user_command = [".git/", "git --git-dir=%s/.git ls-files -oc --exclude-standard"]
-
-" Returns files from the git index.
-function! ListGitFiles(...)
-  return system("git ls-files")
-endfunction
-
-com! -complete=custom,ListGitFiles -nargs=1 E :e <args>
+source ~/.vim/maps.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RENAME CURRENT FILE
+" PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RenameFile()
-  let old_name = expand("%:p")
-  let new_name = input("New file name: ", expand("%"), "file")
-
-  if new_name != ""
-    exec ":saveas " . new_name
-    exec ":silent !rm " . old_name
-    redraw!
-  endif
-endfunction
-
-map <leader>n :call RenameFile()<cr>
+source ~/.vim/bundle/plugins.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MULTIPURPOSE TAB KEY
+" SCRIPTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! InsertTabWrapper()
-  let col = col(".") - 1
-
-  if !col || getline(".")[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" AUTO PASTE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
-
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
+source ~/.vim/scripts/autocomplete.vim
+source ~/.vim/scripts/autopaste.vim
+source ~/.vim/scripts/rename.vim
