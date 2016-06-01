@@ -37,6 +37,10 @@ set wildmode=list:longest                 " complete files like a shell
 filetype on                               " enable file type detection
 syntax enable                             " turn on syntax highlighting
 
+" Enable slim syntax highlight
+autocmd FileType slim setlocal foldmethod=indent
+autocmd BufNewFile,BufRead *.slim set filetype=slim
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORSCHEME
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
