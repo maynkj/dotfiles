@@ -21,6 +21,9 @@ export PATH=/usr/local/Cellar/screen/4.3.0/bin:$PATH
 export HISTIGNORE="&:[bf]g:c:exit"
 export HISTCONTROL="ignoreboth"
 
+# Ruby gems
+export GEM_PATH=/Users/maynkj/.gem/ruby/2.4.0:/Users/maynkj/.rubies/ruby-2.4.0/lib/ruby/gems/2.4.0:./.gs
+
 # Executable files installed by PostgreSQL.
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 
