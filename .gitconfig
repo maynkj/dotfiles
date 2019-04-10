@@ -1,6 +1,6 @@
 [user]
 	name = maynkj
-	email = mayn.kjaer@gmail.com
+	email = maynkj@protonmail.com
 [credential]
 	helper = osxkeychain
 [push]
@@ -18,5 +18,5 @@
   pum = pull upstream master
   heroku = push heroku master
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore_global
 	editor = vim
