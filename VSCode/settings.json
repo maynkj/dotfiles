@@ -1,12 +1,8 @@
 {
   "editor.fontFamily": "'Fira Code iScript', Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "editor.fontWeight": "600",
-    "editor.tokenColorCustomizations": {
-    "[Material Theme High Contrast]": {
-      "comments": "#7aa59c",
-      "functions": "#30c095"
-    },
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "600",
+  "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
         "scope": [
@@ -38,13 +34,13 @@
       }
     ]
   },
-    "editor.minimap.enabled": false,
-    "files.insertFinalNewline": true,
-    "window.zoomLevel": 0,
-    "editor.tabSize": 2,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "files.trimTrailingWhitespace": true,
-    "explorer.confirmDragAndDrop": false,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.colorTheme": "Horizon Bold",
+  "editor.minimap.enabled": false,
+  "files.insertFinalNewline": true,
+  "window.zoomLevel": 0,
+  "editor.tabSize": 2,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.trimTrailingWhitespace": true,
+  "explorer.confirmDragAndDrop": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.colorTheme": "Horizon Bold",
 }
