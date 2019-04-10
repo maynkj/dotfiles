@@ -1,0 +1,15 @@
+# Temp files
+tmp/
+
+# VS Code
+*.code-workspace
+
+# OS generated files
+.DS_Store
+
+# Ruby
+.gs/
+.bundle/cache/
+
+# Node
+node_modules/
